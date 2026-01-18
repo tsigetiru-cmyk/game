@@ -3,7 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Neon Void 2026</title>
-    
+    <style>
+          :root {
+            --neon-blue: #00f2ff;
+            --neon-pink: #ff007f;
+            --bg-dark: #020b16;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 50% 50%, #1a2a6c 0%, #000 100%);
+            overflow: hidden;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Parallax Background Stars */
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: transparent url('https://s3-us-west-2.amazonaws.com') repeat;
+            z-index: -1;
+            opacity: 0.5;
+            animation: move-stars 200s linear infinite;
+        }
+
+        @keyframes move-stars {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* Glassmorphism UI */
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        canvas {
+            display: block;
+            filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.2));
+        }
+
+        #score { color: white; }
+
+        /* Game Over Screen Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 50px;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 30px var(--neon-pink);
+            border-radius: 20px;
+            z-index: 100;
+        }
+ 
+    </style>
         
 </head>
 <body>
